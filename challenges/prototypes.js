@@ -5,24 +5,22 @@
 /* == Step 1: Base Constructor ==
   Create a constructor function named CuboidMaker that accepts properties for length, width, and height
 */
-class CuboidMaker {
-  constructor(cuboid) {
-    this.length = cuboid.length;
-    this.width = cuboid.width;
-    this.height = cuboid.height;
-  }
-  volume() {
-    console.log(this.length * this.width * this.height);
-  }
-  surfaceArea() {
-    console.log(
-      2 *
-        (this.length * this.width +
-          this.length * this.height +
-          this.width * this.height)
-    );
-  }
+function CuboidMaker(cuboid) {
+  this.length = cuboid.length;
+  this.width = cuboid.width;
+  this.height = cuboid.height;
 }
+// volume() {
+//   console.log(this.length * this.width * this.height);
+// }
+// surfaceArea() {
+//   console.log(
+//     2 *
+//       (this.length * this.width +
+//         this.length * this.height +
+//         this.width * this.height)
+//   );
+// }
 
 /* == Step 2: Volume Method ==
   Create a method using CuboidMaker's prototype that returns the volume of a given cuboid's length, width, and height
@@ -32,6 +30,15 @@ class CuboidMaker {
 
 // I could create a method not in the class constructor, however It is more clean and better practice to do it that way rather than CuboidMaker.prototype.methodName = function (){}...
 
+CuboidMaker.prototype.surfaceArea = function() {
+  console.log(
+    2 *
+      (this.length * this.width +
+        this.length * this.height +
+        this.width * this.height)
+  );
+};
+
 /* == Step 3: Surface Area Method ==
   Create another method using CuboidMaker's prototype that returns the surface area of a given cuboid's length, width, and height. 
 
@@ -39,6 +46,9 @@ class CuboidMaker {
 */
 
 // same comment as step 2 for the method...
+CuboidMaker.prototype.volume = function() {
+  console.log(this.length * this.width * this.height);
+};
 
 /* == Step 4: Create a new object that uses CuboidMaker ==
   Create a cuboid object that uses the new keyword to use our CuboidMaker constructor
